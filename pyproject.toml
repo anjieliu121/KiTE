@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "KiTE"
+version = "0.1.0"
+authors = [
+    { name="Anjie Liu", email="anjie.liu@utexas.edu" },
+    { name="Ritwik Vashistha", email="ritwikvashistha@austin.utexas.edu" },
+    { name="Arya Farahi", email="arya.farahi@austin.utexas.edu" }
+]
+description = "KiTE (Kernel-based AI Trustworthiness Examiner) tests local calibration of binary classifiers and recalibrates their probabilities using kernel local calibration error (KLCE)."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+keywords = ["AI", "trustworthiness", "uncertainty", "calibration", "kernel", "evaluation", "machine-learning"]
+dependencies = [
+    "jax>=0.4.27",
+    "optax>=0.2.0"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/anjieliu121/KiTE"
+Issues = "https://github.com/anjieliu121/KiTE/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["KiTE"]
+
+[tool.hatch.build]
+include = [
+  "README.md",
+  "LICENSE",
+  "KiTE/**/*.py"
+]
